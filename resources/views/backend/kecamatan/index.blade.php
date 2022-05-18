@@ -8,16 +8,43 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title"><b>Import Data Kecamatan</b></h4>
+                        <button type="button" class="btn btn-primary mb-3 pull-right">Import Data Kecamatan</button>
+                        <button type="button" class="btn btn-outline-primary mb-3 mr-3 pull-right">Download To Excel</button>
+
                         <div class="single-table">
                             <div class="table-responsive">
                                 <table class="table table-hoverable">
-                                    <thead class="text-uppercase">
+                                    <thead>
                                         <tr>
-                                            <th scope="col">Province</th>
+                                            <th scope="col">Province </th>
                                             <th scope="col">Kota</th>
                                             <th scope="col">Kelurahan</th>
                                             <th scope="col">Kecamatan</th>
                                         </tr>
+                                        <tr>
+                                            <th>
+                                                <form class="nosubmit">
+                                                    <input class="nosubmit" type="search" placeholder="Search...">
+                                                </form>
+                                            </th>
+                                            <th>
+                                                <form class="nosubmit">
+                                                    <input class="nosubmit" type="search" placeholder="Search...">
+                                                </form>
+                                            </th>
+                                            <th>
+                                                <form class="nosubmit">
+                                                    <input class="nosubmit" type="search" placeholder="Search...">
+                                                </form>
+                                            </th>
+                                            <th>
+                                                <form class="nosubmit">
+                                                    <input class="nosubmit" type="search" placeholder="Search...">
+                                                </form>
+                                            </th>
+                                            
+                                        </tr>
+                                    </thead>
                                     </thead>
                                     <tbody>
                                         @foreach ($kecamatan as $kecamatans)
@@ -26,41 +53,19 @@
                                             <td>{{ $kecamatans->kota }}</td>
                                             <td>{{ $kecamatans->kelurahan }}</td>
                                             <td>{{ $kecamatans->kecamatan }}</td>
-                                            {{-- <td>
-                                                <button type="button" class="btn btn-light mb-3" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-                                                    <a class="ti-more-alt"></a>
-                                                </button>
-                                            </td> --}}
                                             <td>
-                                                    
-                                                    <button class="btn btn-light mb-3" data-toggle="dropdown"><i class="ti-more-alt"></i></h4>
+                                                <div class="col clearfix">   
+                                                    <button class="btn btn-light " data-toggle="dropdown"><i class="ti-more-alt"></i></button>
                                                     <div class="dropdown-menu">
                                                         <form action="{{ route('kecamatan.destroy',$kecamatans->id) }}" method="POST">
-                                                            <a class="dropdown-item" href="{{ route('kecamatan.edit',$kecamatans->id) }}">edit</a>
+                                                            <a class="dropdown-item" href="{{ route('kecamatan.edit',$kecamatans->id) }}">Edit</a>
                                                             {!! csrf_field() !!}
                                                             <input name="_method" type="hidden" value="DELETE">
-                                                            <a class="dropdown-item" href="#" onclick="parentNode.submit(); return false;">Delete</a>
-                                                            
+                                                            <a class="dropdown-item" href="#" onclick="parentNode.submit(); return false;">delete</a>
                                                         </form>
                                                     </div>
+                                                </div>
                                             </td>
-                                            
-                                                {{-- <td>
-                                                <form action="{{ route('kecamatan.destroy',$kecamatans->id) }}" method="POST">
-                                                    <a class="btn btn-primary" href="{{ route('kecamatan.edit',$kecamatans->id) }}">
-                                                        <i class="nav-icon fas fa-pen"></i>
-                                                        Edit</a>
-                                
-                                
-                                                    {!! csrf_field() !!}
-                                                    <input name="_method" type="hidden" value="DELETE">
-                                
-                                    
-                                                    <button type="submit" class="btn btn-danger">
-                                                        <i class="nav-icon fas fa-trash"></i>
-                                                        Delete</button>
-                                                </form>
-                                            </td> --}}
                                         </tr>
                                         @endforeach
                                     </tbody>

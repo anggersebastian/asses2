@@ -5,13 +5,6 @@
         <div class="container-fluid">
             <form action="{{ route('kecamatan.store') }}" method="POST">
                 {!! csrf_field() !!}
-                <div class="pull-right">
-                    <a class="btn btn-success" href="{{ route('kecamatan.index') }}"> 
-                        <i class="nav-icon fas fa-arrow-left"></i>
-                        Kembali</a>
-                </div>
-                <br>
-
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card card-primary">

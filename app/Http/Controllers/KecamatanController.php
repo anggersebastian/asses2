@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\kecamatan;
+use Excel;
 use Illuminate\Http\Request;
 
 class KecamatanController extends Controller
@@ -106,5 +107,37 @@ class KecamatanController extends Controller
 
         return redirect()->route('kecamatan.index')
                         ->with('success','Data deleted successfully');
+    }
+
+    public function kecamatanImport(Request $request){
+        if($request->hasFile('kecamatan')){
+            $path = $request->file('kecamatan')->getRealPath();
+            $data = Excel::load($path)->get();
+            if($data->count()){
+
+                foreach ($data as $key => $value) {
+                    //print_r($value);
+                    $kecamatan_list[] = ['province' => $value->province, 'kota' => $value->kota, 'kelurahan' => $value->kelurahan, 'kecamatan' => $value->kecamatan,];
+                }
+                if(!empty($kecamatan_list)){
+                    kecamatan::insert($kecamatan_list);
+                    
+                }
+            }
+        }else{
+            return view('kecamatan.index');
+        }
+        return view('kecamatan.index');
+    } 
+
+
+    public function kecamatanExport($type){
+        $kecamatan = kecamatan::select('province','kota','kelurahan', 'kecamatan')->get()->toArray();
+        return Excel::create('kecamatan', function($excel) use ($kecamatan) {
+            $excel->sheet('kecamatan Details', function($sheet) use ($kecamatan)
+            {
+                $sheet->fromArray($kecamatan);
+            });
+        })->download($type);
     }
 }

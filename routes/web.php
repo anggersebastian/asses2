@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/backend', 'KecamatanController@index');
 
 Route::resource('kecamatan', 'KecamatanController');
+
+// Route::get('kecamatan-list', 'KecamatanController@list')->name('kecamatan.list');
+Route::post('kecamatan-import', 'KecamatanController@kecamatanImport')->name('kecamatan.import');
+Route::get('kecamatan-export/{type}', 'KecamatanController@kecamatanExport')->name('kecamatan.export');
