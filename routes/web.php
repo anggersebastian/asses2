@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/backend', 'KecamatanController@index');
+
+Route::resource('kecamatan', 'KecamatanController');
