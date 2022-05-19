@@ -7,7 +7,7 @@
             <div class="col-lg-12 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title"><b>Import Data Kecamatan</b></h4>
+                        <h2 class="header-title"><b>Import Data Kecamatan</b></h2>
                         <button type="button" class="btn btn-primary mb-3 pull-right"><i class="ti-upload"> </i> Import Data Kecamatan</button>
                         <button type="button" class="btn btn-outline-primary mb-3 mr-3 pull-right"><i class="ti-download"></i> Download To Excel</button>
 

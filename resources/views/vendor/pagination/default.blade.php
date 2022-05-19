@@ -2,7 +2,7 @@
     <ul class="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <li class="page-item disabled"><span class="page-link" style="background-color: black; color:white; margin-right: 30px;"><i class="fa fa-chevron-left"></i></span></li>
+            <li class="page-item disabled"><span class="page-link" style="background-color: black; color:white; margin-right: 20px;"><i class="fa fa-chevron-left"></i></span></li>
         @else
             <li class="page-item"><a class="page-link" style="background-color: black; color:white; margin-right: 30px;" href="{{ $paginator->previousPageUrl() }}" rel="prev"><i class="fa fa-chevron-left"></i></a></li>
         @endif

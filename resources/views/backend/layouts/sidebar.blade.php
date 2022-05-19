@@ -1,7 +1,7 @@
 <div class="sidebar-menu">
     <div class="sidebar-header">
         <div class="logo">
-            <H5>ADMIN LOGO</H5>
+            <h5 class="text-center"><b> ADMIN LOGO </b></h5>
         </div>
     </div>
     <div class="main-menu">
